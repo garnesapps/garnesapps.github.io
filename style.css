@@ -1,0 +1,122 @@
+html, body {
+	margin: 0;
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	font-size: 18px;
+}
+
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+header {
+	text-align: center;
+	padding: 0.5em 0;
+	background: #f55760;
+	margin: 0 0 1.5em 0;
+}
+
+main {
+	margin: 2em 0;
+}
+
+.main-logo {
+	width: 100px;
+	height: 100px;
+}
+
+h1 {
+	font-weight: normal;
+	color: white;
+}
+
+.container {
+	margin: 0.5em auto;
+	padding: 0 1em;
+	max-width: 900px;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+a {
+	color: #3c6dbb;
+}
+
+.note {
+	font-style: italic;
+	font-size: 80%;
+	margin: 0.5em 0;
+}
+
+.signatories {
+	list-style-type: none;
+	padding: 0;
+}
+
+.smaller-text {
+	font-size: 80%;
+}
+
+.signatories li {
+	display: inline;
+}
+.signatories li::after {
+	content: ', ';
+}
+.signatories li:last-of-type::after {
+	content: '';
+}
+
+.lang-switcher {
+	background: #eee;
+	padding: 1em;
+	text-align: center;
+}
+.lang-switcher h2 {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+.lang-switcher ul {
+	display: inline;
+	padding: 0;
+	list-style-type: none;
+}
+.lang-switcher li {
+	display: inline-block;
+	margin-left: 0.7em;
+}
+html[lang=en] .lang-switcher li [data-langswitch='en'],
+html[lang=es] .lang-switcher li [data-langswitch='es'],
+html[lang=uk] .lang-switcher li [data-langswitch='uk'],
+html[lang=fr] .lang-switcher li [data-langswitch='fr'],
+html[lang=ru] .lang-switcher li [data-langswitch='ru'],
+html[lang=ja] .lang-switcher li [data-langswitch='ja'],
+html[lang=pt-br] .lang-switcher li [data-langswitch='pt-br'],
+html[lang=de] .lang-switcher li [data-langswitch='de'],
+html[lang=vi] .lang-switcher li [data-langswitch='vi'],
+html[lang=pl] .lang-switcher li [data-langswitch='pl'],
+html[lang=zh-hant] .lang-switcher li [data-langswitch='zh-hant']{
+	color: inherit;
+	text-decoration: inherit;
+	pointer-events: none;
+}
