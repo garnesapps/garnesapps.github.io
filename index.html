@@ -7,145 +7,930 @@
 			<title>Garnes Apps</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<link rel="shortcut icon" href="favicon.ico" />
-
-			<link rel="stylesheet" href="style.css">
 			
 			<style>
-.flex-container {
+			body {
+  padding-top: 40px;
+  background: repeat-y center url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1362379/Heritage_Stripe_Black-iOS-11-GM-iPad-wallpapers.jpg");
+  font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+  max-width: 885px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center
+  margin: 20px auto 50px auto;
 }
 
-.flex-container > div {
-  width: 100px;
-  margin: 10px;
+.container {
+  margin: 0 auto;
+}
+
+.icon-container {
+  margin: 20px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #ececec;
+  position: relative;
+}
+
+.icon-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+}
+
+.bar {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: #F7CA18;
+  border-radius: 20% 20% 0 0;
+  margin-bottom: 20px;
+}
+.bar-left {
+  border-radius: 10px 0 0 10px;
+}
+.bar-middle {
+  height: 100px;
+  border-radius: 10px 0 0 0;
+  z-index: 1;
+}
+.bar-right {
+  background-color: #F27935;
+  height: 150px;
+  border-radius: 10px 10px 10px 0;
+  overflow: hidden;
+}
+
+h1, h2 {
+  color: white;
   text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
 }
 
-.flex-container p {
-  margin: 0px !important;
-  padding: 0px !important;
-  line-height: 18px;
-  font-size: 12px
+.envelope {
+  background-color: #3267D5;
+  width: 150px;
+  height: 90px;
+  margin: 0 auto 20px auto;
+  border-top: 2px solid #ECECEC;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.envelope .envelope-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 135px 85px 0;
+  border-color: transparent transparent #2AB6F6 transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.envelope .envelope-right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 85px 135px;
+  border-color: transparent transparent #81D2F9 transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
-.flex-container img {
-  width: 100% !important
+.envelope-content {
+  width: 35px;
+  height: 10px;
+  background-color: #E0E0E0;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 75px;
+  top: 90px;
+  z-index: 1;
+  -webkit-animation: display 6s linear infinite;
+          animation: display 6s linear infinite;
+  opacity: 0;
+}
+.envelope-content::after {
+  content: "";
+  width: 200%;
+  height: 100%;
+  background-color: #E0E0E0;
+  position: absolute;
+  left: -5px;
+  bottom: 30px;
+  transform: rotate(-90deg);
 }
 
-.flex-container a {
-  text-decoration: none;
-  color: #222;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: bold
+@-webkit-keyframes display {
+  0%, 20% {
+    opacity: 0;
+    top: 160px;
+  }
+  20%, 50% {
+    opacity: 0;
+  }
+  55%, 100% {
+    opacity: 1;
+    top: 90px;
+  }
+}
+
+@keyframes display {
+  0%, 20% {
+    opacity: 0;
+    top: 160px;
+  }
+  20%, 50% {
+    opacity: 0;
+  }
+  55%, 100% {
+    opacity: 1;
+    top: 90px;
+  }
+}
+.envelope-top {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 75px 55px 75px;
+  border-color: transparent transparent #2A55C5 transparent;
+  position: absolute;
+  top: 40px;
+  -webkit-animation: flip 6s linear infinite;
+          animation: flip 6s linear infinite;
+  perspective: 500px;
+  transform-origin: 100% 100%;
+}
+
+@-webkit-keyframes flip {
+  0%, 60% {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+  60%, 100% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+}
+
+@keyframes flip {
+  0%, 60% {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+  60%, 100% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+}
+.trapezoid {
+  height: 40px;
+  width: 75px;
+}
+.trapezoid-yellow {
+  background-color: #FFCF61;
+  transform: rotate(90deg) skewY(-30deg);
+  position: absolute;
+  top: 65px;
+  left: 85px;
+  z-index: 1;
+}
+.trapezoid-blue {
+  background-color: #3777E2;
+  transform: rotate(30deg) skewY(-30deg);
+  position: absolute;
+  bottom: 40px;
+  left: 72px;
+  z-index: 2;
+}
+.trapezoid-green {
+  background-color: #10A860;
+  transform: rotate(-30deg) skewY(-30deg);
+  position: absolute;
+  top: 82px;
+  left: 31px;
+}
+.trapezoid-green::after {
+  content: "";
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  top: 50px;
+  transform: rotate(30deg);
+}
+
+.weather {
+  background: linear-gradient(#008DEA 30%, #00F9F9);
+}
+
+.sun {
+  background-color: #FFD24A;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: absolute;
+  top: 35px;
+  left: 30px;
+}
+
+.dots {
+  width: 85px;
+  height: 75px;
+  background-color: #E2F9FE;
+  opacity: 0.95;
+  border-radius: 50%;
+  position: absolute;
+  top: 60px;
+  left: 65px;
+}
+.dots::before, .dots::after {
+  content: "";
+  background-color: #E2F9FE;
+  opacity: 0.95;
+  position: absolute;
+  border-radius: 50%;
+}
+.dots::before {
+  width: 70%;
+  height: 70%;
+  top: 30px;
+  left: -20px;
+  border-radius: 50px;
+}
+.dots::after {
+  width: 90%;
+  height: 90%;
+  top: 15px;
+  left: 30px;
+  border-radius: 50px;
+}
+
+.box {
+  width: 50px;
+  height: 20px;
+  background-color: #E2F9FE;
+  opacity: 0.95;
+  position: absolute;
+  top: 63px;
+  left: 10px;
+}
+
+.newspaper {
+  background-color: #C93BDD;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: -10px;
+}
+
+.photo-rectangle {
+  width: 45px;
+  height: 75px;
+  border-radius: 50px;
+  position: absolute;
+  top: 20px;
+}
+.photo-rectangle.orange {
+  background-color: rgba(243, 156, 18, 0.7);
+  z-index: 1;
+}
+.photo-rectangle.yellow {
+  background-color: rgba(241, 196, 15, 0.7);
+  transform-origin: 55% 100%;
+  transform: rotate(45deg);
+}
+.photo-rectangle.green {
+  background-color: rgba(46, 204, 113, 0.7);
+  transform-origin: 55% 105%;
+  transform: rotate(90deg);
+}
+.photo-rectangle.lightBlue {
+  background-color: rgba(27, 188, 155, 0.7);
+  transform-origin: 52.5% 105%;
+  transform: rotate(135deg);
+}
+.photo-rectangle.blue {
+  background-color: rgba(65, 131, 215, 0.7);
+  transform-origin: 50% 105%;
+  transform: rotate(180deg);
+}
+.photo-rectangle.purple {
+  background-color: rgba(102, 51, 153, 0.7);
+  transform-origin: 47.5% 105%;
+  transform: rotate(225deg);
+}
+.photo-rectangle.violet {
+  background-color: rgba(155, 89, 182, 0.7);
+  transform-origin: 45% 105%;
+  transform: rotate(270deg);
+}
+.photo-rectangle.red {
+  background-color: rgba(242, 38, 19, 0.7);
+  transform-origin: 45% 102.5%;
+  transform: rotate(315deg);
+}
+
+.firstRing {
+  display: block;
+  width: 160px;
+  height: 160px;
+  background-color: #2F883E;
+  border-radius: 50%;
+  border: 6px solid black;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  overflow: hidden;
+}
+
+.secondRing {
+  width: 150px;
+  height: 154px;
+  background-color: transparent;
+  border: 3px solid #44ff4e;
+  border-radius: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.thirdRing {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: 3px solid #44ff4e;
+  border-radius: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: absolute;
+  top: 30px;
+  left: 27.5px;
+}
+
+.fourthRing {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 3px solid #44ff4e;
+  border-radius: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.scan {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  overflow: hidden;
+  background: linear-gradient(0deg, #44ff4e, #44ff4e 10%, transparent);
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+  transform-origin: 0% 0%;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.podcast {
+  background: linear-gradient(#D46DFB, #842CC2);
+}
+
+.podcast-outerRing {
+  border: 10px solid;
+  border-color: white white transparent white;
+  border-radius: 50%;
+  width: 115px;
+  height: 115px;
+  margin: auto;
+  background-color: transparent;
+  position: relative;
+}
+
+.podcast-innerRing {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 10px solid;
+  border-color: white white transparent white;
+  margin: 12px auto;
+}
+
+.podcast-center {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+.podcast-rectangle {
+  width: 25px;
+  height: 60px;
+  background-color: white;
+  border-radius: 20px;
+  position: absolute;
+  top: 80px;
+  left: 45px;
+}
+
+.app-store {
+  background: linear-gradient(#00C4F9, #0076F0);
+}
+
+.app-storeRectangle {
+  background-color: white;
+  width: 17px;
+  height: 135px;
+  border-radius: 40px;
+}
+.app-storeRectangle.left {
+  transform: translate(75px, -30px) rotate(27.5deg);
+}
+.app-storeRectangle.middle {
+  transform: rotate(90deg);
+  margin: 0 auto;
+}
+.app-storeRectangle.right {
+  transform: translate(-75px, -30px) rotate(-27.5deg);
+}
+
+.adobe {
+  background-color: #1B2B38;
+}
+.adobe.lightroom {
+  border: 8px solid #AED4E9;
+}
+.adobe.spark {
+  border: 8px solid #FFDA00;
+  position: relative;
+}
+.adobe.photoshop {
+  border: 8px solid #0AC9FF;
+  position: relative;
+}
+.adobe.comp {
+  border: 8px solid #988AFA;
+}
+
+.light-rectangle {
+  background-color: #AED4E9;
+  width: 15px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+  margin-right: 10px;
+}
+.light-rectangle::after {
+  content: "";
+  width: 100%;
+  height: 50%;
+  background-color: #AED4E9;
+  position: absolute;
+  transform: skewY(-10deg) rotate(100deg) translate(67px, -32px);
+}
+
+.room-rectangle {
+  background-color: #AED4E9;
+  width: 15px;
+  height: 65px;
+  margin: auto;
+  transform: translate(-15px, 18px);
+}
+.room-rectangle::after {
+  content: "";
+  width: 100%;
+  height: 50%;
+  background-color: #AED4E9;
+  position: absolute;
+  transform: skewY(-10deg) rotate(90deg) translate(-10px, -10px);
+}
+
+.spark-innerRectangle {
+  width: 50px;
+  height: 50px;
+  border: 20px solid #FFDA00;
+  margin: auto;
+  z-index: 1;
+}
+
+.spark-outerRectangle {
+  width: 90px;
+  height: 90px;
+  border: 3px solid #FCF7CC;
+}
+.spark-outerRectangle.back {
+  transform: rotate(30deg);
+  position: absolute;
+  top: 25%;
+}
+.spark-outerRectangle.front {
+  transform: rotate(-30deg);
+  position: absolute;
+  top: 25%;
+  z-index: 2;
+}
+
+.photoshop-circle {
+  background-color: #0AC9FF;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.photoshop-dashed {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border: 5px dashed #0AC9FF;
+  border-radius: 50%;
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.photoshop-dashed__fill {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #B3F3FF;
+  background: repeating-linear-gradient(45deg, #B3F3FF 2px, #B3F3FF 5px, #1B2B38 2px, #1B2B38 13px);
+  transform: translate(-30px, -30px);
+}
+
+.layer {
+  opacity: 1;
+  box-sizing: content-box;
+  width: 60px;
+  height: 55px;
+  margin: auto;
+  background: repeating-linear-gradient(0deg, #E8DFFD 0px, #E8DFFD 6px, #1B2B38 2px, #1B2B38 12px);
+  transform: skew(55deg, -35deg) translate(-20px, 20px);
+  position: relative;
+}
+
+.layer:before, .layer:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.layer:before {
+  background-color: #988AFA;
+  left: 10px;
+  top: 10px;
+  transform: translate3d(10px, -25px, 0px);
+}
+
+.layer:after {
+  border: 4px solid #E8DFFD;
+  background-color: #1B2B38;
+  top: 1px;
+  transform: translate3d(35px, -35px, 0px);
+  width: 95%;
+  height: 85%;
+}
+
+.cross {
+  background-color: #E8DFFD;
+  width: 5px;
+  height: 75px;
+  z-index: 2;
+  transform: rotate(50deg) translate(8px, -78px);
+  position: relative;
+}
+.cross::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  background-color: #E8DFFD;
+  transform: rotate(-100deg);
+}
+
+.instagram {
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(circle farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(circle farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+.instagram-borderRectangle {
+  width: 125px;
+  height: 125px;
+  border-radius: 25%;
+  border: 10px solid white;
+  margin: auto;
+  position: relative;
+}
+
+.instagram-lens {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid white;
+  margin: 30px auto 0 auto;
+  z-index: 0;
+}
+
+.instagram-flash {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  border: 8px solid white;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.npr-outerRing {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.npr-rectangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 45px 0 45px 85px;
+  border-color: transparent transparent transparent #2A55C5;
+  position: absolute;
+}
+.npr-rectangle.red {
+  border-color: transparent transparent transparent #D51800;
+  top: 0;
+  left: 18px;
+  transform: rotate(60deg);
+}
+.npr-rectangle.black {
+  border-color: transparent transparent transparent #181818;
+  left: 52px;
+  transform: rotate(120deg);
+}
+.npr-rectangle.grey {
+  border-color: transparent transparent transparent #393939;
+  top: 33px;
+  left: 65px;
+  transform: rotate(180deg);
+}
+.npr-rectangle.blue {
+  border-color: transparent transparent transparent #3166CC;
+  left: 52px;
+  bottom: 0;
+  transform: rotate(240deg);
+}
+.npr-rectangle.lightBlue {
+  border-color: transparent transparent transparent #83ADEC;
+  left: 15px;
+  bottom: 0;
+  transform: rotate(300deg);
+}
+.npr-rectangle.orange {
+  border-color: transparent transparent transparent #FF3300;
+  transform: translate(-4px, 29px);
+}
+
+.npr-innerRing {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.netflix {
+  background-color: #000000;
+  position: relative;
+}
+
+.netflix-rectangle {
+  width: 25px;
+  height: 135px;
+  background-color: #CF0207;
+  position: absolute;
+  top: 35px;
+  left: 60px;
+  z-index: 3;
+}
+.netflix-rectangle::before, .netflix-rectangle::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #FF040D;
+}
+.netflix-rectangle::before {
+  z-index: 2;
+  transform: skew(20deg);
+  position: absolute;
+  left: 25px;
+  box-shadow: 0px 10px 20px #111;
+}
+.netflix-rectangle::after {
+  z-index: 1;
+  transform: skew(0deg);
+  position: absolute;
+  left: 50px;
+  background-color: #CF0207;
+}
+
+.paypal {
+  background: linear-gradient(-45deg, #0098DA, #002A6E);
+  position: relative;
+}
+
+.letterCircle {
+  width: 47.5px;
+  height: 75px;
+  border-radius: 0 50% 50% 0;
+  background-color: white;
+  transform: skewx(-10deg);
+  position: absolute;
+  top: 40px;
+  left: 93px;
+}
+.letterCircle::after {
+  content: "";
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  transform: translate(36.6px, 35px);
+  border-radius: 0 50% 50% 0;
+  background-color: rgba(173, 206, 227, 0.7);
+}
+
+.letterRectangle {
+  width: 40px;
+  height: 120px;
+  background-color: white;
+  border-radius: 5% 0 5% 5%;
+  transform: skew(-10deg);
+  position: absolute;
+  top: 40px;
+  left: 50px;
+}
+.letterRectangle::after {
+  content: "";
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  transform: translate(40px, 35px);
+  border-radius: 5% 0 5% 5%;
+  background-color: rgba(173, 206, 227, 0.7);
 }
 			</style>
 	</head>
 
 	<body>
 
-		<header>
-			<div class='container'>
-				<img width="130" src="logo.png"/>
-			</div>
-		</header>
-
-		<main>
-			<article class='container'>
-					<div class="flex-container">
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.imgtoascii" target="_BLANK">
-									<p><img src="image/4.png" alt="Img to ASCII"></p>
-									<p>Img to ASCII</p>
+		<h1>Garnes Apps</h1>
+<div class="main-container">
+  <div class="container">
+    <div class="icon-container">
+	<a href="https://play.google.com/store/apps/details?id=com.garnesapps.printerbluetooth" target="_BLANK">
+      <img src="image/1.png" alt="Printer Bluetooth">
+	  </a>
+    </div>
+    <h2>Printer Bluetooth</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.aksara" target="_BLANK">
+		<img src="image/2.png" alt="Nulis Aksara">
+	</a>
+    </div>
+    <h2>Nulis Aksara</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.calculatorbon" target="_BLANK">
+		<img src="image/3.png" alt="Struk Bon Kasir">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.emailaddressextractor" target="_BLANK">
-									<p><img src="image/7.png" alt="Email Address Extractor"></p>
-									<p>Email Address Extractor</p>
+    </div>
+    <h2>Struk Bon Kasir</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.strukpom" target="_BLANK">
+		<img src="image/4.png" alt="Struk POM">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.vsubstudio" target="_BLANK">
-									<p><img src="image/8.png" alt="VSub Studio"></p>
-									<p>VSub Studio</p>
+    </div>
+    <h2>Struk POM</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.emailaddressextractor" target="_BLANK">
+			<img src="image/5.png" alt="Email Address Extractor">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.kbbioffline" target="_BLANK">
-									<p><img src="image/9.png" alt="KBBI Offline"></p>
-									<p>KBBI Offline</p>
+    </div>
+    <h2>Email Extractor</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.pintarpancasilaundangundang" target="_BLANK">
+		<img src="image/6.png" alt="Pancasila & Undang-Undang">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.calculatorbon" target="_BLANK">
-									<p><img src="image/11.png" alt="Struk Bon Kasir"></p>
-									<p>Struk Bon Kasir</p>
+    </div>
+    <h2>Pancasila & UU</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.kamusistilahpendidikan" target="_BLANK">
+			<img src="image/7.png" alt="Kamus Istilah Pendidikan">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.aksara" target="_BLANK">
-									<p><img src="image/13.png" alt="Nulis Aksara"></p>
-									<p>Nulis Aksara</p>
+    </div>
+    <h2>Kamus Istilah</h2>
+  </div>
+  <div class="container">
+    <div class="icon-containe">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.kbbioffline" target="_BLANK">
+			<img src="image/8.png" alt="KBBI Offline">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.pintarpancasilaundangundang" target="_BLANK">
-									<p><img src="image/18.png" alt="Pancasila & Undang-Undang"></p>
-									<p>Pancasila & Undang-Undang</p>
+    </div>
+    <h2>KBBI Offline</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.vsubstudio" target="_BLANK">
+			<img src="image/9.png" alt="VSub Studio">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.strukpom" target="_BLANK">
-									<p><img src="image/19.png" alt="Struk POM"></p>
-									<p>Struk POM</p>
+    </div>
+    <h2>VSub Studio</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.fotosiluet" target="_BLANK">
+			<img src="image/10.png" alt="Foto Siluet">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.namanama" target="_BLANK">
-									<p><img src="image/22.png" alt="Nama Bayi"></p>
-									<p>Nama Bayi</p>
+    </div>
+    <h2>Foto Siluet</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.namanama" target="_BLANK">
+			<img src="image/11.png" alt="Nama Bayi">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.kamusistilahpendidikan" target="_BLANK">
-									<p><img src="image/24.png" alt="Kamus Istilah Pendidikan"></p>
-									<p>Kamus Istilah Pendidikan</p>
+    </div>
+    <h2>Nama Bayi</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.imgtoascii" target="_BLANK">
+			<img src="image/12.png" alt="Img to ASCII">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.whiteboard" target="_BLANK">
-									<p><img src="image/25.png" alt="Papan Tulis"></p>
-									<p>Papan Tulis</p>
+    </div>
+    <h2>Img to ASCII</h2>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <a href="https://play.google.com/store/apps/details?id=com.garnesapps.whiteboard" target="_BLANK">
+			<img src="image/13.png" alt="Papan Tulis">
 								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.printerbluetooth" target="_BLANK">
-									<p><img src="image/26.png" alt="Printer Bluetooth"></p>
-									<p>Printer Bluetooth</p>
-								</a>
-							</div>
-  							<div>
-								<a href="https://play.google.com/store/apps/details?id=com.garnesapps.fotosiluet" target="_BLANK">
-									<p><img src="image/27.png" alt="Foto Siluet"></p>
-									<p>Foto Siluet</p>
-								</a>
-							</div>
-					</div>
-			</article>
-			
-			<br>
-			
-			<div class='container lang-switcher'>
-				<ul>
-					<li>© 2024, GARNES APPS.</li>
-				</ul>
-			</div>
-
-		</main>
+    </div>
+    <h2>Whiteboard</h2>
+  </div>
+</div>
 
 	</body>
 </html>
